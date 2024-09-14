@@ -16,31 +16,37 @@ body {
 }
 
 header {
+  position: sticky;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
-  padding: 0 40px;
+  height: 6.25rem;
+  padding: 0 1.25rem;
+  background-color: #ffffffc5;
+  border-bottom: 0.125rem solid #f1f1f1;
+  backdrop-filter: blur(1.25rem);
 }
 
 main {
-  padding: 40px;
+  padding: 20px;
 }
 
 .switch {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 50px;
-  width: 250px;
-  padding: 10px;
-  border-radius: 15px;
+  grid-template-rows: 2.5rem;
+  width: 15.625rem;
+  padding: 0.3125rem;
+  border-radius: 0.9375rem;
   background-color: #faf9fe;
 }
 
 .switch button {
   background-color: transparent;
-  border-radius: 15px;
-  font-size: 16px;
+  border-radius: 0.9375rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -50,40 +56,40 @@ main {
 
 .search {
   display: grid;
-  grid-template-columns: 1fr 50px;
-  grid-template-rows: 50px;
-  width: 350px;
+  grid-template-columns: 1fr 3.125rem;
+  grid-template-rows: 3.125rem;
+  width: 21.875rem;
   background-color: #faf9fe;
-  border-radius: 16px;
+  border-radius: 1rem;
 }
 
 .search input {
-  padding: 0 20px;
+  padding: 0 1.25rem;
   background-color: transparent;
   border: none;
   outline: none;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .search div {
   display: grid;
-  padding: 5px;
+  padding: 0.3125rem;
 }
 
 .search div button {
-  border-radius: 50px;
+  border-radius: 3.125rem;
 }
 
 .actions {
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .actions button {
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   background-color: #faf9fe;
-  border-radius: 50px;
+  border-radius: 3.125rem;
 }
 
 .banner {
@@ -92,39 +98,130 @@ main {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 350px;
+  height: 21.875rem;
   background: linear-gradient(to left, #fad0c4, #ffc3a0, #ff9a9e);
-  border-radius: 30px;
+  border-radius: 1.875rem;
 }
 
 .banner h3 {
-  font-size: 36px;
+  font-size: 2.25rem;
   text-align: center;
 }
 
 .content {
-  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4.375rem 1fr;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
 }
 
 .categories {
+  position: sticky;
+  top: 7.5rem;
+  height: max-content;
   display: flex;
-  flex-direction: column;
-  width: 250px;
-  gap: 10px;
+  flex-direction: row;
+  gap: 0.625rem;
+  overflow: auto;
 }
 
 .categories button {
-  height: 70px;
-  padding: 0 25px;
+  height: 4.375rem;
+  padding: 0 1.5625rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.625rem;
   background-color: #faf9fe;
-  border-radius: 15px;
-  font-size: 16px;
+  border-radius: 0.9375rem;
+  font-size: 1rem;
+  text-wrap: nowrap;
   font-weight: bold;
 }
 
 .categories button:hover {
   background-color: #dcdafe;
+}
+
+.products-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  grid-auto-rows: 18.75rem;
+  gap: 1.25rem;
+}
+
+.product-card {
+  display: grid;
+  grid-template-rows: 3.75rem 1fr 3.75rem;
+  background-color: #f1f1f1;
+  border-radius: 1.875rem;
+}
+
+.product-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.9375rem;
+}
+
+.product-card__model {
+  font-weight: bold;
+  color: #626262;
+}
+
+.product-card__favorite-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 2.5rem;
+}
+
+.product-card__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.9375rem;
+}
+
+.product-card__price {
+  font-weight: bold;
+  color: #626262;
+}
+
+.product-card__add-to-cart-btn {
+  padding: 0.625rem 1.25rem;
+  font-weight: bold;
+  background-color: #f8fed0;
+  border-radius: 1.875rem;
+}
+
+/* Responsive */
+@media (min-width: 769px) {
+  header {
+    padding: 0 2.5rem;
+  }
+
+  main {
+    padding: 2.5rem;
+  }
+
+  .content {
+    grid-template-columns: 14.375rem 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .categories {
+    flex-direction: column;
+  }
 }
