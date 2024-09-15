@@ -1,6 +1,33 @@
 const CART = [];
 const FAVORITES = [];
 
+let currentGender = "men";
+
+const genderSwitch = document.querySelector("#gender-selection");
+const genderSwitchBtns = Array.from(genderSwitch.children);
+
+const changeGender = (gender) => {
+  currentGender = gender;
+  genderSwitchBtns.forEach((btn) => {
+    const isActive = btn.dataset.gender === gender;
+    btn.classList.toggle("active", isActive);
+    btn.setAttribute("aria-pressed", isActive);
+  });
+};
+
+genderSwitch.addEventListener("click", (event) => {
+  const btn = event.target.closest("button");
+  if (btn) {
+    const selectedGender = btn.dataset.gender;
+    console.log(selectedGender);
+    changeGender(selectedGender);
+  }
+});
+
+changeGender(currentGender);
+
+// Cargar productos
+
 fetch("./products.json")
   .then((response) => response.json())
   .then((products) => {
@@ -10,7 +37,7 @@ fetch("./products.json")
       productsGrid.innerHTML += `
         <div class="product-card" data-id="${product.id}">
           <div class="product-card__header">
-            <span class="product-card__model">${product.model}</span>
+            <span class="product-card__model jaro-font">${product.model}</span>
             <button
               class="product-card__favorite-btn"
               data-action="favorite"

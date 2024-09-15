@@ -4,29 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vesture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script src="main.js" type="module" defer></script>
   </head>
 
   <body>
     <header>
-      <h1>Vesture</h1>
-
-      <div class="switch">
-        <button class="active">👨 Men</button>
-        <button>👩 Women</button>
-      </div>
-
-      <div class="search">
-        <input type="text" placeholder="Search for name" />
-        <div>
-          <button>
-            <img src="/assets/icons/search_icon.png" alt="" />
-          </button>
-        </div>
-      </div>
+      <h1 class="jaro-font">Vesture</h1>
 
       <div class="actions">
+        <button>
+          <img src="/assets/icons/search_2_icon.png" alt="" />
+        </button>
+
         <button>
           <img src="/assets/icons/heart_icon.png" alt="" />
         </button>
@@ -40,7 +36,7 @@
     <main>
       <!-- Banner -->
       <div class="banner">
-        <h3>
+        <h3 class="jaro-font">
           DISCOUNTS UP TO 50% FROM ANSWEAR CLUB <br />
           ORIGINAL GOODS
         </h3>
@@ -53,26 +49,41 @@
       <!-- Content -->
       <div class="content">
         <!-- Categories -->
-        <aside class="categories">
-          <button>
-            <span>Bestseller</span>
-            <span>🔥</span>
-          </button>
+        <aside class="filters">
+          <div class="gender-switch" id="gender-selection">
+            <button data-gender="men">
+              👨
+              <span>Men</span>
+            </button>
+            <button data-gender="women">
+              👩
+              <span>Women</span>
+            </button>
+          </div>
 
-          <button>
-            <span>New arrivals</span>
-            <span>🌟</span>
-          </button>
+          <div class="categories_scroll">
+            <div class="categories">
+              <button>
+                <span>Bestseller</span>
+                <span>🔥</span>
+              </button>
 
-          <button>
-            <span>Tops</span>
-            <span>👕</span>
-          </button>
+              <button>
+                <span>New arrivals</span>
+                <span>🌟</span>
+              </button>
 
-          <button>
-            <span>Pants</span>
-            <span>👖</span>
-          </button>
+              <button>
+                <span>Tops</span>
+                <span>👕</span>
+              </button>
+
+              <button>
+                <span>Pants</span>
+                <span>👖</span>
+              </button>
+            </div>
+          </div>
         </aside>
 
         <!-- Grid of products -->
