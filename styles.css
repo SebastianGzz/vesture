@@ -23,6 +23,49 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: 350px;
+  height: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-left: 1px solid #ccc;
+  transform: translateX(100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#toggle-cart-btn {
+  font-size: 25px;
+  padding: 14px;
+  border-radius: 100%;
+}
+
+.show-cart {
+  transform: translateX(0);
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.cart-item__details {
+  display: flex;
+  flex-direction: column;
+}
+
 header {
   position: sticky;
   top: 0;
@@ -31,7 +74,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem;
-  background-color: #ffffffc5;
+  background-color: #ffffff74;
   border-bottom: 0.125rem solid #f1f1f1;
   backdrop-filter: blur(1.25rem);
 }

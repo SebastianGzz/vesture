@@ -6,6 +6,41 @@ let currentGender = "men";
 const genderSwitch = document.querySelector("#gender-selection");
 const genderSwitchBtns = Array.from(genderSwitch.children);
 
+const cartItems = document.getElementById("cart-items");
+const cartBtns = Array.from(document.querySelectorAll("#toggle-cart-btn"));
+
+cartBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const cart = document.querySelector(".cart");
+    cart.classList.toggle("show-cart");
+  });
+});
+
+function loadCartItems() {
+  cartItems.innerHTML = "";
+
+  CART.forEach((product) => {
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <div class="cart-item__image">
+          <img src="${product.imageUrl}" alt="Product Image" />
+        </div>
+
+        <div class="cart-item__details">
+          <span class="cart-item__model jaro-font">${product.model}</span>
+          <span class="cart-item__price">${product.price}</span>
+        </div>
+
+        <div class="cart-item__quantity">
+          <button>-</button>
+          <span>${product.quantity}</span>
+          <button>+</button>
+        </div>
+      </div>
+    `;
+  });
+}
+
 const changeGender = (gender) => {
   currentGender = gender;
   genderSwitchBtns.forEach((btn) => {
@@ -70,10 +105,14 @@ fetch("./products.json")
     favoriteBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         const id = btn.parentElement.parentElement.dataset.id;
+
+        console.log(id);
         const originalProduct = products.find(({ id }) => id === id);
 
         const alreadyAdded = (productId, array) =>
           array.some(({ id }) => id === productId);
+
+        console.log(id);
 
         switch (btn.dataset.action) {
           case "cart":
@@ -83,6 +122,8 @@ fetch("./products.json")
             } else {
               CART.push(Object.assign({}, originalProduct, { quantity: 1 }));
             }
+
+            loadCartItems();
             break;
           case "favorite":
             if (!alreadyAdded(id, FAVORITES)) {
