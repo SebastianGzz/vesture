@@ -23,6 +23,10 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.dark-mode {
+  background-color: #1e1e1e;
+}
+
 .cart {
   position: fixed;
   top: 0;
@@ -44,6 +48,9 @@ body {
 }
 
 #toggle-cart-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 25px;
   padding: 14px;
   border-radius: 100%;
@@ -137,7 +144,6 @@ main {
   gap: 20px;
   padding: 5px;
   height: fit-content;
-  background-color: #ffffffc5;
   border: 0.125rem solid #f1f1f1;
   backdrop-filter: blur(1.25rem);
   border-radius: 50px;

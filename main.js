@@ -9,6 +9,13 @@ const genderSwitchBtns = Array.from(genderSwitch.children);
 const cartItems = document.getElementById("cart-items");
 const cartBtns = Array.from(document.querySelectorAll("#toggle-cart-btn"));
 
+const toggleDarkModeBtn = document.getElementById("toggle-dark-mode-btn");
+
+toggleDarkModeBtn.addEventListener("click", () => {
+  const body = document.querySelector("body");
+  body.classList.toggle("dark-mode");
+});
+
 cartBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     const cart = document.querySelector(".cart");
@@ -103,7 +110,7 @@ fetch("./products.json")
     const favoriteBtns = Array.from(document.querySelectorAll("#addBtn"));
 
     favoriteBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", (e) => {
         const id = btn.parentElement.parentElement.dataset.id;
 
         console.log(id);
@@ -128,6 +135,7 @@ fetch("./products.json")
           case "favorite":
             if (!alreadyAdded(id, FAVORITES)) {
               FAVORITES.push(originalProduct);
+              console.log(e);
             } else {
               console.log("Ya esta en tu lista de favoritos");
             }
