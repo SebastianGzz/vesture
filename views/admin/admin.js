@@ -1,4 +1,14 @@
-fetch("./products.json")
+const user = JSON.parse(localStorage.getItem("customer"));
+
+if (!user) {
+  window.location.href = "/views/login/login.html";
+}
+
+if (user.rol !== "admin") {
+  window.location.href = "/";
+}
+
+fetch("../../products.json")
   .then((response) => response.json())
   .then((data) => {
     new DataTable("#productsTable", {

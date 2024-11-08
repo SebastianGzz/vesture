@@ -116,8 +116,7 @@ fetch("./products.json")
         console.log(id);
         const originalProduct = products.find(({ id }) => id === id);
 
-        const alreadyAdded = (productId, array) =>
-          array.some(({ id }) => id === productId);
+        const alreadyAdded = (productId, array) => array.some(({ id }) => id === productId);
 
         console.log(id);
 
@@ -147,3 +146,34 @@ fetch("./products.json")
     });
   })
   .catch((error) => console.error("Error loading JSON:", error));
+
+// Cargar usuario
+const user = JSON.parse(localStorage.getItem("customer"));
+
+if (!user) {
+  window.location.href = "/views/login/login.html";
+}
+
+const linksContainer = document.getElementById("links-container");
+const actionsContainer = document.getElementById("actions-container");
+
+if (user.rol === "admin") {
+  linksContainer.innerHTML += `
+    <a href="/views/admin/admin.html">Administrar</a>
+  `;
+}
+
+if (user) {
+  actionsContainer.innerHTML += `
+    <button id="logout-btn">
+      <img src="/assets/icons/exit.png" alt="" />
+    </button>
+    `;
+
+  const logoutBtn = document.getElementById("logout-btn");
+
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("customer");
+    window.location.href = "/views/login/login.html";
+  });
+}
