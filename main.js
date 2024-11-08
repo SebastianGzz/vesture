@@ -11,7 +11,10 @@ const cartBtns = Array.from(document.querySelectorAll("#toggle-cart-btn"));
 
 const toggleDarkModeBtn = document.getElementById("toggle-dark-mode-btn");
 
+console.log(toggleDarkModeBtn);
+
 toggleDarkModeBtn.addEventListener("click", () => {
+  console.log("click toggle dark mode");
   const body = document.querySelector("body");
   body.classList.toggle("dark-mode");
 });
@@ -164,11 +167,14 @@ if (user.rol === "admin") {
 }
 
 if (user) {
-  actionsContainer.innerHTML += `
+  actionsContainer.insertAdjacentHTML(
+    "beforeend",
+    `
     <button id="logout-btn">
-      <img src="/assets/icons/exit.png" alt="" />
+      <img src="/assets/icons/exit.png" alt="Salir" />
     </button>
-    `;
+    `
+  );
 
   const logoutBtn = document.getElementById("logout-btn");
 
